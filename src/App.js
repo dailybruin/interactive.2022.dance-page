@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Carousel from "./components/Carousel";
 
 function App() {
   const [ data, setData ] = useState(null);
@@ -15,9 +16,10 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
+      {/* <Header/>
       Hello Daily Bruin!
-      <Footer/>
+      <Footer/> */}
+      <Carousel/>
     </div>
   );
 }
