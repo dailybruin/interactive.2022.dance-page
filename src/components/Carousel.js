@@ -1,11 +1,14 @@
 import styled from 'styled-components';
-import Slider from "react-slick";
 import { render } from '@testing-library/react';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import dancepic from "../images/dance.png"
 
-// const Container = styled.div`
-
-// `
-
+const Caption = styled.div`
+    position: relative;
+    top: 50px;
+`
 
 export default function Carousel() {
     render() 
@@ -20,24 +23,36 @@ export default function Carousel() {
         <div> 
             <Slider {...settings}>
                 <div>
-                    <h3>1</h3>
+                    <img src={dancepic} alt="dance" />
                 </div>
                 <div>
-                    <h3>2</h3>
+                    <img src={dancepic} alt="dance" />
                 </div>
                 <div>
-                    <h3>3</h3>
+                    <img src={dancepic} alt="dance" />
                 </div>
                 <div>
-                    <h3>4</h3>
+                    <img src={dancepic} alt="dance" />
                 </div>
                 <div>
-                    <h3>5</h3>
+                    <img src={dancepic} alt="dance" />
                 </div>
                 <div>
-                    <h3>6</h3>
+                    <img src={dancepic} alt="dance" />
+                </div>
+                <div>
+                    <img src={dancepic} alt="dance" />
+                </div>
+                <div>
+                    <img src={dancepic} alt="dance" />
+                </div>
+                <div>
+                    <img src={dancepic} alt="dance" />
                 </div>
             </Slider>
+            <Caption>
+                caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption 
+            </Caption>
         </div>
       );
 }
