@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.caption-box {
+  margin: 27px 40px 0 40px;
+  color: white;
+}
+
+.cred-text {
+  text-align: right;
+  margin: 8px 40px 0 0;
+  color: white;
+}
+
+.background {
+  background-color: black;
+}
+
+.divider {
+  border-color: #696969;
+}
