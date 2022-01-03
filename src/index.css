@@ -39,3 +39,8 @@ code {
 .divider {
   border-color: #696969;
 }
+
+.grid-container-mobile {
+  display: flex;
+  grid-template-columns: auto auto auto;
+}
