@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
-
+import Landing from "./components/Landing";
+import StickySidebar from "./components/StickySidebar";
 
 function App() {
   const [ data, setData ] = useState(null);
@@ -18,7 +18,8 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      Hello Daily Bruin!
+      <Landing/>
+      {/* <StickySidebar/> */}
       <Footer/>
     </div>
   );
