@@ -9,6 +9,12 @@ import PictureRowMobile from './components/PictureRowMobile'
 function App() {
   const media = window.matchMedia('(max-width: 450px)');
   const [isMobile, setIsMobile] = useState(media.matches);
+  media.addEventListener('change', () => {
+    if (media.matches !== isMobile) {
+        setIsMobile(media.matches);
+    }
+    });
+    
   return (
     <div className="App">
       { !isMobile && <PictureRow />}
