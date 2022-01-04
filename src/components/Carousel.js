@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Slider from "react-slick";
 
+let sliderHeight = 300
+let imageWidth = 450
+
 const CarouselDiv = styled.div`
     background-color: black;
 `
 const Image = styled.img`
-    height: 300px;
-    padding-left: 5px;
+    height: ${sliderHeight}px;
+    width: ${imageWidth}px;
+    object-fit: cover;
+    margin: 0 auto;
 `
 const CredsDiv = styled.div`
     padding-top: 5px;
@@ -28,7 +33,7 @@ function SampleNextArrow(props) {
     return (
       <div
         className={className}
-        style={{ ...style, display: "flex", alignItems: 'center', justifyContent: 'center', position: 'absolute', right: 0, zIndex: 5, width: 30, height: 300, backgroundColor: 'black', opacity: 0.5}}
+        style={{ ...style, display: "flex", alignItems: 'center', justifyContent: 'center', position: 'absolute', right: 0, zIndex: 5, width: 30, height: sliderHeight, backgroundColor: 'black', opacity: 0.5}}
         onClick={onClick}
       />
     );
@@ -39,7 +44,7 @@ function SampleNextArrow(props) {
     return (
       <div
         className={className}
-        style={{ ...style, display: "flex", alignItems: 'center', justifyContent: 'center', position: 'absolute', left: 0, zIndex: 5, width: 30, height: 300, backgroundColor: 'black', opacity: 0.5}}
+        style={{ ...style, display: "flex", alignItems: 'center', justifyContent: 'center', position: 'absolute', left: 0, zIndex: 5, width: 30, height: sliderHeight, backgroundColor: 'black', opacity: 0.5}}
         onClick={onClick}
       />
     );
@@ -47,13 +52,6 @@ function SampleNextArrow(props) {
 
 export default function Carousel(props){
     let images = props.images
-    let numImages = images.length
-    let numSlides
-    if (numImages % 3 == 0) {
-        numSlides = numImages / 3
-    } else {
-        numSlides = (numImages / 3) + 1
-    }
     const imageSlider = images.map((element) => {
         return <div id = {element}>
             <Image src = {element}></Image>
@@ -62,8 +60,17 @@ export default function Carousel(props){
     return (
         <div style={{backgroundColor: "black"}}>
             <CarouselDiv>
-                <Slider arrows={true} infinite={true} speed={500} slidesToShow={3} slidesToScroll={numSlides} variableWidth={true} nextArrow={<SampleNextArrow/>} prevArrow={<SamplePrevArrow/>}>
-                    {imageSlider}
+                <Slider arrows={true} infinite={true} speed={500} slidesToShow={3} slidesToScroll={1} nextArrow={<SampleNextArrow/>} prevArrow={<SamplePrevArrow/>} responsive={[
+                    {
+                    breakpoint: imageWidth * 2,
+                    settings: { slidesToShow: 1}
+                    },
+                    {
+                    breakpoint: imageWidth * 3,
+                    settings: { slidesToShow: 2}
+                    }
+                ]}>
+                {imageSlider}
                 </Slider>
             </CarouselDiv>
             <CredsDiv><strong>{props.photographer}</strong>/Daily Bruin</CredsDiv>
