@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Illo from "./components/Illo";
+import Image from "./components/Image";
 
 
 
@@ -19,6 +21,8 @@ function App() {
     <div className="App">
       <Header/>
       Hello Daily Bruin!
+      <Illo />
+      <Image />
       <Footer/>
     </div>
   );
