@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Landing from "./components/Landing";
 import StickySidebar from "./components/StickySidebar";
+import StickySidebarMobile from "./components/StickySidebarMobile";
+import { mediaQueries } from './shared/config';
 
 const IntroText = styled.div`
     display: flex;
@@ -15,10 +17,17 @@ const IntroText = styled.div`
     font-family: 'Barlow', sans-serif;
     color: white;
     background-color: black;
-    
+    ${mediaQueries.tablet} {
+      padding: 30px 50px 30px 50px;
+    }
 `
 const Container = styled.div`
     display: flex;
+`
+
+const MobileContainer = styled.div`
+    display: flex;
+    flex-direction: column;
 `
 
 const Left = styled.div`
@@ -28,7 +37,12 @@ const Left = styled.div`
 
 const Right = styled.div`
     width: 75%;
-
+`
+const Up = styled.div`
+    height: 25%;
+`
+const Down = styled.div`
+    height: 75%;
 `
 
 const TestingContainer = styled.div`
@@ -45,6 +59,15 @@ function App() {
 		.then(res => res.json())
 		.then(res => setData(res.data['article.aml']))
   }, [])
+
+  const media = window.matchMedia('(max-width: 750px)');
+  const [isMobile, setIsMobile] = useState(media.matches);
+  console.log(isMobile);
+  media.addEventListener('change', () => {
+      if (media.matches !== isMobile) {
+        setIsMobile(media.matches);
+      }
+  });
 
   const [scroll, setScroll] = useState(0);
 
@@ -67,7 +90,7 @@ function App() {
       <IntroText>
       From selecting music and choreography to perfecting costumes and makeup, the ins and outs of putting on a dance performance are complex and detailed. Put on your dancing shoes and follow along as columnist Laura Carter takes a behind-the-scenes look at dance, disassembled.
       </IntroText>
-      <Container>
+      {!isMobile &&<Container>
         <Left>
           <StickySidebar scroll={scroll}/>
         </Left>
@@ -77,7 +100,16 @@ function App() {
           <TestingContainer>section2</TestingContainer>
 
         </Right>
-      </Container>
+      </Container>}
+      {isMobile && <MobileContainer>
+
+          <StickySidebarMobile scroll={scroll}/>
+
+    
+          <TestingContainer>section1</TestingContainer>
+          <TestingContainer>section2</TestingContainer>
+     
+        </MobileContainer>}
      
       <Footer/>
     </div>
