@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import VideoPlayer from "./components/VideoPlayer";
 import Landing from "./components/Landing";
 import StickySidebar from "./components/StickySidebar";
 // import PictureRow from "./components/PictureRow";
@@ -11,7 +12,6 @@ import Illo from "./components/Illo";
 import Image from "./components/Image";
 import PictureRow from "./components/PictureRow";
 import PictureRowMobile from './components/PictureRowMobile'
-
 
 
 function App() {
@@ -26,6 +26,8 @@ function App() {
   return (
     <div className="App">
       <Header/>
+      Hello Daily Bruin!
+      <VideoPlayer />
       <Landing/>
       {/* <StickySidebar/> */}
       <Carousel images = {["https://i.insider.com/6164e6d62457a4001982d6d6?width=1000&format=jpeg&auto=webp",
