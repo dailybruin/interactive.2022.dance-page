@@ -17,7 +17,7 @@ const VideoPlayer = () => (
   <iframe 
     width="95%" 
     height="515" 
-    src="https://www.youtube.com/embed/j4ju_TWhKzA" 
+    src="https://www.youtube.com/embed/_u4Pv6Q5gaE" 
     title="Dance Disassembled" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
