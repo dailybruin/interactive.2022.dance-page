@@ -8,6 +8,9 @@ import styled from 'styled-components'
 import { mediaQueries } from '../shared/config';
 
 
+
+
+
 const Container = styled.div`
 	background-color: black;
 	height: auto;
