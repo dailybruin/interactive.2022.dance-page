@@ -30,7 +30,7 @@ function App() {
         photographer = "PHOTOGRAPHER"
         caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
         ></Carousel>
-      <PictureRow/>
+      {/* <PictureRow/> */}
       <Footer/>
     </div>
   );
