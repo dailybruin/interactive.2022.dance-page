@@ -1,7 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import React, {useState} from 'react';
-
-
+import arrowimg from '../images/arrows.svg';
 const Sidebar = styled.div`
     display: flex;
     flex-direction: column;
@@ -12,6 +11,7 @@ const Sidebar = styled.div`
     position: sticky;
     top: 5vh;
 `
+
 const TitleContainer = styled.div`
     background: white;
     margin: 4vh;
@@ -23,13 +23,14 @@ const TitleContainer = styled.div`
     padding-left: 10px;
     border-left: 5px solid;
 `
+
 const IntroContainer = styled.div`
     display: flex;
-    flex-direciton: column;
+    flex-direction: column;
     background-color: black;
     color: white;
     margin: 0 4vh;
-    padding: 3vh;
+    padding: 3vh 1vh 0.5vh 1vh;
     font-family: 'Barlow', sans-serif;
     text-align: left;
 `
@@ -42,6 +43,35 @@ const Intro = styled.div`
 
 const ReadMore = styled.div`
     /* color: white; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    text-transform: uppercase;
+    color: black;
+    margin: 3vh 0 0.5vh 0;
+    padding: 0 0 0 1vh;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+`
+
+// const Arrows = styled.div`
+//     position: fixed;
+//     left: 0;
+//     background-image:url(${arrowimg});
+//     background-position: center;
+//     background-size: cover;
+//     min-height: 10px;
+// `
+
+const Arrows = styled.img`
+
+    /* float: right; */
+    height: 3vh;
+    align-self: flex-end;
+
 `
 export default function StickySidebar(props){
     const fixedStyle={
@@ -53,8 +83,20 @@ export default function StickySidebar(props){
     };
 
     const standardStyle = {};
+    console.log(props.scroll);
 
-    
+    let scroll = props.scroll;
+    console.log(scroll);
+    let title = "";
+    let intro = "";
+    if (scroll <= 81){
+        title = "Student dance groups bring K-pop dance routines to UCLA ";
+        intro = "Put on your dancing shoes and follow along as columnist Laura Carter takes a behind-the-scenes look at dance, disassembled.";
+    }
+    else{
+        title = "section 2";
+        intro = "description";
+    }
 
     return(
         <>
@@ -63,17 +105,16 @@ export default function StickySidebar(props){
                 // style={props.scroll >= 42 ? fixedStyle : standardStyle}
             >
                 <TitleContainer>
-                <strong>
-                Student dance groups bring K-pop dance routines to UCLA
-                </strong>
+                    {title}
                 </TitleContainer>
 
                 <IntroContainer>
                     <Intro>
-                    Put on your dancing shoes and follow along as columnist Laura Carter takes a behind-the-scenes look at dance, disassembled.
+                        {intro}
                     </Intro>
                     <ReadMore>
-                    
+                       <div>read more</div>
+                       <Arrows src={arrowimg}/>
                     </ReadMore>
                 </IntroContainer>
             </Sidebar>

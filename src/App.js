@@ -55,7 +55,7 @@ function App() {
           const scroll = `${totalScroll / windowHeight * 100}`;
           setScroll(scroll);
       }
-      console.log(scroll);
+      // console.log(scroll);
       window.addEventListener("scroll", progressBarHandler);
       return () => window.removeEventListener("scroll", progressBarHandler);
   });
