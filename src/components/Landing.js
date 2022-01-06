@@ -33,11 +33,11 @@ export default function Landing(props){
         <>
         
             {isMobile && <Container src="https://endlessicons.com/wp-content/uploads/2012/11/image-holder-icon-614x460.png">
-                <Credits>Ashley Kenney, Biona Hui and Shirley Yao/Daily Bruin staff</Credits>
+                <Credits><strong>Joe Bruin</strong>/Daily Bruin</Credits>
             </Container>}
 
             {!isMobile && <Container src="https://endlessicons.com/wp-content/uploads/2012/11/image-holder-icon-614x460.png">
-                <Credits>Ashley Kenney, Biona Hui and Harry Song/Daily Bruin staff</Credits>
+                <Credits><strong>Joe Bruin</strong>/Daily Bruin</Credits>
             </Container>}
             
         </>
