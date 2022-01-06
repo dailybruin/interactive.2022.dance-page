@@ -21,10 +21,10 @@ function PictureRow() {
             <Pictures />
             <Credits />
             <Caption />
-            <hr className = 'divider'/>
-            <Pictures />
+            {/* <hr className = 'divider'/> */}
+            {/* <Pictures />
             <Credits />
-            <Caption />
+            <Caption /> */}
         </div>
     )
 }
