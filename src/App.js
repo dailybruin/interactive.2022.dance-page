@@ -9,18 +9,20 @@ import StickySidebar from "./components/StickySidebar";
 import Carousel from "./components/Carousel";
 import Illo from "./components/Illo";
 import Image from "./components/Image";
+import PictureRow from "./components/PictureRow";
+import PictureRowMobile from './components/PictureRowMobile'
 
 
 
 function App() {
-  const [ data, setData ] = useState(null);
-  
-  useEffect(() => {
-		fetch("<TODO: insert api url here>")
-		.then(res => res.json())
-		.then(res => setData(res.data['article.aml']))
-  }, [])
-
+  const media = window.matchMedia('(max-width: 450px)');
+  const [isMobile, setIsMobile] = useState(media.matches);
+  media.addEventListener('change', () => {
+    if (media.matches !== isMobile) {
+        setIsMobile(media.matches);
+    }
+    });
+    
   return (
     <div className="App">
       <Header/>
@@ -39,7 +41,10 @@ function App() {
       {/* <PictureRow/> */}
       <Illo />
       <Image />
+      { !isMobile && <PictureRow />}
+      { isMobile && <PictureRowMobile />}
       <Footer/>
+      
     </div>
   );
 }
