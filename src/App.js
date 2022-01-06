@@ -7,6 +7,9 @@ import Landing from "./components/Landing";
 import StickySidebar from "./components/StickySidebar";
 // import PictureRow from "./components/PictureRow";
 import Carousel from "./components/Carousel";
+import Illo from "./components/Illo";
+import Image from "./components/Image";
+
 
 
 function App() {
@@ -34,6 +37,8 @@ function App() {
         caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
         ></Carousel>
       {/* <PictureRow/> */}
+      <Illo />
+      <Image />
       <Footer/>
     </div>
   );

@@ -6,6 +6,7 @@ let sliderHeight = 300
 let imageWidth = 450
 
 const CarouselDiv = styled.div`
+    padding-top: 10px;
     background-color: black;
 `
 const Image = styled.img`
@@ -26,6 +27,7 @@ const CaptionDiv = styled.div`
     text-align: left;
     font-family: 'Barlow', sans-serif;
     color: white;
+    padding-bottom: 7px;
 `
 
 function SampleNextArrow(props) {
