@@ -20,7 +20,11 @@ const IntroText = styled.div`
     align-items: center;
     justify-content: center;
     padding: 50px 200px 50px 200px;
+<<<<<<< HEAD
     font-size: 15px;
+=======
+    font-size: 20px;
+>>>>>>> 240d889344ff8fb015077d27139d1debeaeb84ce
     font-family: 'Barlow', sans-serif;
     color: white;
     background-color: black;
@@ -50,6 +54,8 @@ const Left = styled.div`
 
 const Right = styled.div`
     width: 75%;
+    background-color:black;
+    padding: 0 5vh 3vh 5vh;
 `
 const Up = styled.div`
     height: 25%;
@@ -65,14 +71,24 @@ const TestingContainer = styled.div`
     color: white;
 `
 function App() {
+
+  //set up kerck
   const [ data, setData ] = useState(null);
-  
   useEffect(() => {
+<<<<<<< HEAD
 		fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/interactive.2022.dance-page")
 		.then(res => res.json())
 		.then(res => setData(res.data['article.aml']))
   }, [])
   let landing_link = "";
+=======
+		fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/interactive.2022.dance-page/")
+		.then(res => res.json())
+		.then(res => setData(res.data['article.aml']))
+  }, [])
+
+  //set up mobile identifier
+>>>>>>> 240d889344ff8fb015077d27139d1debeaeb84ce
   const media = window.matchMedia('(max-width: 750px)');
   const [isMobile, setIsMobile] = useState(media.matches);
   console.log(isMobile);
@@ -82,6 +98,7 @@ function App() {
       }
   });
 
+  //set up scrolling event listener
   const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
@@ -120,6 +137,11 @@ function App() {
     }
   });
 
+
+  //testing
+
+
+  // let introText = data.intro;
 
   return (
      <div className="App">

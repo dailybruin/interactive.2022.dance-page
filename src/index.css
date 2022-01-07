@@ -21,17 +21,21 @@ code {
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
+  grid-gap: 10px;
 }
 
 .caption-box {
-  margin: 27px 40px 0 40px;
+  margin-top: 27px;
   color: white;
+  text-align: left;
 }
 
 .cred-text {
   text-align: right;
-  margin: 8px 40px 0 0;
+  margin: 8px 0 0 0;
   color: white;
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px;
 }
 
 .background {

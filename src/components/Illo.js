@@ -40,8 +40,13 @@ export default function Illo(props) {
     */
     return(
         <Container>
+<<<<<<< HEAD
              <Media src={props.url}/> 
             <Credits><b>PERSON</b>/Daily Bruin</Credits>
+=======
+             <Media src={props.src}/> 
+            <Credits><b>{props.credit}</b>/{props.credit2}</Credits>
+>>>>>>> 240d889344ff8fb015077d27139d1debeaeb84ce
         </Container>
     )
 }
