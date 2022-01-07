@@ -24,13 +24,14 @@ code {
 }
 
 .caption-box {
-  margin: 27px 40px 0 40px;
+  margin-top: 27px;
   color: white;
+  text-align: left;
 }
 
 .cred-text {
   text-align: right;
-  margin: 8px 40px 0 0;
+  margin: 8px 0 0 0;
   color: white;
 }
 
