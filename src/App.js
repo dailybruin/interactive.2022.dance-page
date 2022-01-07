@@ -44,6 +44,8 @@ const Left = styled.div`
 
 const Right = styled.div`
     width: 75%;
+    background-color:black;
+    padding: 0 3vh 3vh 3vh;
 `
 const Up = styled.div`
     height: 25%;
