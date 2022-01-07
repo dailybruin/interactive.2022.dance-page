@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import styled from 'styled-components';
 import Slider from "react-slick";
 
@@ -52,11 +52,12 @@ function SampleNextArrow(props) {
     );
   }
 
-export default function Carousel(props){
+export default function Carousel(props) {
+  const [caption, setCaption] = useState("");
     let images = props.images
-    const imageSlider = images.map((element) => {
+    const imageSlider = images.map((element, index) => {
         return <div id = {element}>
-            <Image src = {element}></Image>
+            <Image src = {element} onClick={() => setCaption(props.caption[index])}></Image>
         </div>
     })
     return (
@@ -76,7 +77,7 @@ export default function Carousel(props){
                 </Slider>
             </CarouselDiv>
             <CredsDiv><strong>{props.photographer}</strong>/Daily Bruin</CredsDiv>
-            <CaptionDiv>{props.caption}</CaptionDiv>
+            <CaptionDiv>{caption}</CaptionDiv>
         </div>
     );
 }

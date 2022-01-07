@@ -3,7 +3,7 @@ import { mediaQueries } from '../shared/config'
 import React, {useState} from 'react';
 
 const Container = styled.div`
-    background-image: url(${props=>props.url});
+    background-image: url(${props=>props.src});
     background-position: center;
     background-size: cover;
     position: relative;

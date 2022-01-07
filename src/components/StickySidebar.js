@@ -89,13 +89,35 @@ export default function StickySidebar(props){
     console.log(scroll);
     let title = "";
     let intro = "";
-    if (scroll <= 32){
-        title = "Student dance groups bring K-pop dance routines to UCLA ";
-        intro = "Put on your dancing shoes and follow along as columnist Laura Carter takes a behind-the-scenes look at dance, disassembled.";
+    let link = "";
+    if (scroll <= 42){
+        title = props.headings[0].title;
+        intro = props.headings[0].text;
+        link = props.headings[0].link;
     }
-    else{
-        title = "section 2";
-        intro = "description";
+    else if (scroll <= 52) {
+        title = props.headings[1].title;
+        intro = props.headings[1].text;
+        link = props.headings[1].link;
+    }
+
+    else if (scroll <= 65) {
+        title = props.headings[2].title;
+        intro = props.headings[2].text;
+        link = props.headings[2].link;
+    }
+
+    else if (scroll <= 85) {
+        title = props.headings[3].title;
+        intro = props.headings[3].text;
+        link = props.headings[3].link;
+    }
+
+    else {
+        title = props.headings[4].title;
+        intro = props.headings[4].text;
+        link = props.headings[4].link;
+
     }
 
     return(
@@ -114,7 +136,9 @@ export default function StickySidebar(props){
                     </Intro>
                     <ReadMore>
                        <div>read more</div>
-                       <Arrows src={arrowimg}/>
+                       <a href={link}>
+                        <Arrows src={arrowimg}/>
+                       </a>
                     </ReadMore>
                 </IntroContainer>
             </Sidebar>

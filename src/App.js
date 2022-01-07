@@ -61,11 +61,17 @@ const Down = styled.div`
 `
 
 const TestingContainer = styled.div`
-    min-height: 100vh;
+    /* min-height: 100vh; */
     border: 0.5px solid #696969;
     background-color: black;
     color: white;
 `
+
+const P = styled.p`
+font-size: 20px;
+font-family: 'Barlow', sans-serif;
+`;
+
 function App() {
 
   //set up kerck
@@ -105,9 +111,23 @@ function App() {
   let culture_links = [];
   let makeup_links = [];
   let tech_links= [];
+
+  let culture_captions = [];
+  let makeup_captions = [];
+  let tech_captions = [];
+
+  let culture_credit = "";
+  let makeup_credit = "";
+  let tech_credit = "";
+
   data.culture.forEach(element => {
     if (element.type === "carousel") {
       culture_links.push(element.image_link)
+      culture_captions.push(element.caption)
+    }
+
+    if (element.type === "carousel_credit") {
+      culture_credit = element.credit;
     }
     
   });
@@ -115,21 +135,34 @@ function App() {
   data.makeup.forEach(element => {
     if (element.type === "carousel") {
       makeup_links.push(element.image_link)
+      makeup_captions.push(element.caption)
     }
+
+    if (element.type === "carousel_credit") {
+      makeup_credit = element.credit;
+    }
+    
   });
 
   data.tech.forEach(element => {
     if (element.type === "carousel") {
       tech_links.push(element.image_link)
+      tech_captions.push(element.caption)
     }
+
+    if (element.type === "carousel_credit") {
+      tech_credit = element.credit;
+    }
+    
   });
 
+  
 
   //testing
 
 
   // let introText = data.intro;
-
+  let num = 0;
   return (
      <div className="App">
        <Header/>
@@ -145,8 +178,7 @@ function App() {
         <Right>
           {/* kpop stuff first */}
           <TestingContainer>
-            <Illo url={data.kpop[0].illo_link} credit1={data.kpop[0].illo_credit} credit2={data.kpop[0].illo_credit_2}/>
-            <Image url={data.kpop[1].graphic_link} credit1={data.kpop[1].graphic_credit} credit2={data.kpop[1].graphic_credit_2} ></Image>
+            <Image url={data.kpop[0].graphic_link} credit1={data.kpop[0].graphic_credit} credit2={data.kpop[0].graphic_credit_2} ></Image>
           </TestingContainer>
           {/* hiphop */}
           <TestingContainer>
@@ -156,8 +188,8 @@ function App() {
           <TestingContainer>
             <Illo url={data.culture[0].illo_link} credit1={data.culture[0].illo_credit} credit2={data.culture[0].illo_credit_2}></Illo>
             <Carousel images = {culture_links}
-              photographer = "PHOTOGRAPHER"
-              caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
+              photographer = {culture_credit}
+              caption={culture_captions}
               >
             </Carousel>
           </TestingContainer>
@@ -165,8 +197,8 @@ function App() {
           <TestingContainer>
             {console.log(makeup_links)}
             <Carousel images = {makeup_links}
-              photographer = "PHOTOGRAPHER"
-              caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
+              photographer = {makeup_credit}
+              caption = {makeup_captions}
               >
             </Carousel>
             <Illo url={data.makeup[8].illo_link} credit1={data.makeup[8].illo_credit} credit2={data.makeup[8].illo_credit_2}></Illo>
@@ -175,6 +207,7 @@ function App() {
           <TestingContainer>
             <Image url={data.tech[0].image_link} credit1={data.tech[0].image_credit} credit2={data.tech[0].image_credit_2}></Image>
             {data.tech.map(block => {
+              let entered = false;
               if (block.type ==="paragraph") {
                 return (
                   <p>
@@ -182,12 +215,18 @@ function App() {
                   </p>
                 )
               }
+
+              if (block.type === "carousel" && num === 0) {
+                num = num + 1;
+                return (
+                  <Carousel images = {tech_links}
+                  photographer = {tech_credit}
+                  caption = {tech_captions}
+                  >
+                  </Carousel>
+                );
+              }
             })}
-            <Carousel images = {tech_links}
-              photographer = "PHOTOGRAPHER"
-              caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
-              >
-            </Carousel>
           </TestingContainer>
         </Right>
       </Container>}
@@ -233,9 +272,9 @@ function App() {
             {data.tech.map(block => {
               if (block.type ==="paragraph") {
                 return (
-                  <p>
+                  <P>
                     {block.content}
-                  </p>
+                  </P>
                 )
               }
             })}

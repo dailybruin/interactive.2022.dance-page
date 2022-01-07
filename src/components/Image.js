@@ -18,7 +18,7 @@ const Media = styled("img")`
     max-height:1000px; */
     justify-content:center;
     margin:auto;
-    width: 95%;
+    /* width: 95%; */ 
     height: auto;
 `
 
@@ -51,8 +51,8 @@ export default function Image(props) {
     return(
         <Container>
             <Media src={props.url}/>
-            <Credits><b>PERSON</b>/Daily Bruin</Credits>
-            <Caption>a bunchh of text a bunchh of text a bunchh of text a bunchh of text a bunchh of text a bunchh of text a bunchh of text a bunchh of text a bunchh of text a bunchh of text a bunchh of text a bunchh of text </Caption>
+            <Credits><b>{props.credit1}</b>/Daily Bruin Staff</Credits>
+            <Caption> {props.caption} </Caption>
         </Container>
     )
 }
