@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Slider from "react-slick";
 
-let sliderHeight = 300
-let imageWidth = 450
+let sliderHeight = 250
+let imageWidth = 300
 
 const CarouselDiv = styled.div`
     padding-top: 10px;
@@ -11,7 +11,7 @@ const CarouselDiv = styled.div`
 `
 const Image = styled.img`
     height: ${sliderHeight}px;
-    width: ${imageWidth}px;
+    max-width: ${imageWidth}px;
     object-fit: cover;
     margin: 0 auto;
 `

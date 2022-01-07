@@ -21,6 +21,7 @@ code {
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
+  grid-gap: 10px;
 }
 
 .caption-box {
@@ -33,6 +34,8 @@ code {
   text-align: right;
   margin: 8px 0 0 0;
   color: white;
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px;
 }
 
 .background {

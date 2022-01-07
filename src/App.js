@@ -45,7 +45,7 @@ const Left = styled.div`
 const Right = styled.div`
     width: 75%;
     background-color:black;
-    padding: 0 3vh 3vh 3vh;
+    padding: 0 5vh 3vh 5vh;
 `
 const Up = styled.div`
     height: 25%;
@@ -120,9 +120,7 @@ function App() {
         caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
         ></Carousel>
           <VideoPlayer />
-          <TestingContainer>section1</TestingContainer>
-          <TestingContainer>section2</TestingContainer>
-
+      
         </Right>
       </Container>}
       {isMobile && <MobileContainer>
