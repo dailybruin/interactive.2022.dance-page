@@ -20,7 +20,7 @@ const IntroText = styled.div`
     align-items: center;
     justify-content: center;
     padding: 50px 200px 50px 200px;
-    font-size: 12px;
+    font-size: 20px;
     font-family: 'Barlow', sans-serif;
     color: white;
     background-color: black;
@@ -63,8 +63,9 @@ const TestingContainer = styled.div`
 function App() {
   const [ data, setData ] = useState(null);
   
+  
   useEffect(() => {
-		fetch("<TODO: insert api url here>")
+		fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/interactive.2022.dance-page/")
 		.then(res => res.json())
 		.then(res => setData(res.data['article.aml']))
   }, [])
@@ -91,14 +92,16 @@ function App() {
       window.addEventListener("scroll", progressBarHandler);
       return () => window.removeEventListener("scroll", progressBarHandler);
   });
-
+  console.log(data)
+  console.log(data.intro)
+  let introText = data.intro;
   return (
     <div className="App">
       <Header/>
       
       <Landing/>
       <IntroText>
-      From selecting music and choreography to perfecting costumes and makeup, the ins and outs of putting on a dance performance are complex and detailed. Put on your dancing shoes and follow along as columnist Laura Carter takes a behind-the-scenes look at dance, disassembled.
+      {introText}
       </IntroText>
       
       {!isMobile &&<Container>
