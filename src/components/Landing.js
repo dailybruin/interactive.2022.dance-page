@@ -3,7 +3,7 @@ import { mediaQueries } from '../shared/config'
 import React, {useState} from 'react';
 
 const Container = styled.div`
-    background-image: url(${props=>props.src});
+    background-image: url(${props=>props.url});
     background-position: center;
     background-size: cover;
     position: relative;
@@ -32,11 +32,11 @@ export default function Landing(props){
         
         <>
         
-            {isMobile && <Container src="https://endlessicons.com/wp-content/uploads/2012/11/image-holder-icon-614x460.png">
+            {isMobile && <Container src={props.url}>
                 <Credits><strong>Joe Bruin</strong>/Daily Bruin</Credits>
             </Container>}
 
-            {!isMobile && <Container src="https://endlessicons.com/wp-content/uploads/2012/11/image-holder-icon-614x460.png">
+            {!isMobile && <Container src={props.url}>
                 <Credits><strong>Joe Bruin</strong>/Daily Bruin</Credits>
             </Container>}
             

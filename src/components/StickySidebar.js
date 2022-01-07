@@ -89,7 +89,7 @@ export default function StickySidebar(props){
     console.log(scroll);
     let title = "";
     let intro = "";
-    if (scroll <= 81){
+    if (scroll <= 32){
         title = "Student dance groups bring K-pop dance routines to UCLA ";
         intro = "Put on your dancing shoes and follow along as columnist Laura Carter takes a behind-the-scenes look at dance, disassembled.";
     }

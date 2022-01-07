@@ -20,7 +20,7 @@ const IntroText = styled.div`
     align-items: center;
     justify-content: center;
     padding: 50px 200px 50px 200px;
-    font-size: 12px;
+    font-size: 15px;
     font-family: 'Barlow', sans-serif;
     color: white;
     background-color: black;
@@ -28,6 +28,12 @@ const IntroText = styled.div`
       padding: 30px 50px 30px 50px;
     }
 `
+
+const Para = styled.div`
+color: white;
+background-color: black;
+`;
+
 const Container = styled.div`
     display: flex;
 `
@@ -53,20 +59,20 @@ const Down = styled.div`
 `
 
 const TestingContainer = styled.div`
-    height: 100vh;
+    min-height: 100vh;
     border: 0.5px solid #696969;
-    background-color: yellow;
-    color: black;
+    background-color: black;
+    color: white;
 `
 function App() {
   const [ data, setData ] = useState(null);
   
   useEffect(() => {
-		fetch("<TODO: insert api url here>")
+		fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/interactive.2022.dance-page")
 		.then(res => res.json())
 		.then(res => setData(res.data['article.aml']))
   }, [])
-
+  let landing_link = "";
   const media = window.matchMedia('(max-width: 750px)');
   const [isMobile, setIsMobile] = useState(media.matches);
   console.log(isMobile);
@@ -89,56 +95,152 @@ function App() {
       window.addEventListener("scroll", progressBarHandler);
       return () => window.removeEventListener("scroll", progressBarHandler);
   });
+  if (!data) {
+    return null;
+  }
+  let culture_links = [];
+  let makeup_links = [];
+  let tech_links= [];
+  data.culture.forEach(element => {
+    if (element.type === "carousel") {
+      culture_links.push(element.image_link)
+    }
+    
+  });
+
+  data.makeup.forEach(element => {
+    if (element.type === "carousel") {
+      makeup_links.push(element.image_link)
+    }
+  });
+
+  data.tech.forEach(element => {
+    if (element.type === "carousel") {
+      tech_links.push(element.image_link)
+    }
+  });
+
 
   return (
-    <div className="App">
-      <Header/>
-      
-      <Landing/>
-      {/* <StickySidebar/> */}
-      <Image />
-      { !isMobile && <PictureRow />}
-      { isMobile && <PictureRowMobile />}
+     <div className="App">
+       <Header/>
+      <Landing url={data.landing_image}/>
       <IntroText>
-      From selecting music and choreography to perfecting costumes and makeup, the ins and outs of putting on a dance performance are complex and detailed. Put on your dancing shoes and follow along as columnist Laura Carter takes a behind-the-scenes look at dance, disassembled.
+        {data.intro}
       </IntroText>
-      {!isMobile &&<Container>
+      {!isMobile && <Container>
         <Left>
-          <StickySidebar scroll={scroll}/>
+          <StickySidebar headings={data.sidebar} scroll={scroll}/>
         </Left>
 
         <Right>
-          <TestingContainer>section1</TestingContainer>
-          <TestingContainer>section2</TestingContainer>
-
+          {/* kpop stuff first */}
+          <TestingContainer>
+            <Illo url={data.kpop[0].illo_link} credit1={data.kpop[0].illo_credit} credit2={data.kpop[0].illo_credit_2}/>
+            <Image url={data.kpop[1].graphic_link} credit1={data.kpop[1].graphic_credit} credit2={data.kpop[1].graphic_credit_2} ></Image>
+          </TestingContainer>
+          {/* hiphop */}
+          <TestingContainer>
+            <VideoPlayer url={data.hiphop[0].video_link} credit1={data.hiphop[0].video_credit} credit2={data.hiphop[0].video_credit_2}/>
+          </TestingContainer>
+          {/* culture */}
+          <TestingContainer>
+            <Illo url={data.culture[0].illo_link} credit1={data.culture[0].illo_credit} credit2={data.culture[0].illo_credit_2}></Illo>
+            <Carousel images = {culture_links}
+              photographer = "PHOTOGRAPHER"
+              caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
+              >
+            </Carousel>
+          </TestingContainer>
+          {/* makeup */}
+          <TestingContainer>
+            {console.log(makeup_links)}
+            <Carousel images = {makeup_links}
+              photographer = "PHOTOGRAPHER"
+              caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
+              >
+            </Carousel>
+            <Illo url={data.makeup[8].illo_link} credit1={data.makeup[8].illo_credit} credit2={data.makeup[8].illo_credit_2}></Illo>
+          </TestingContainer>
+          {/* tech */}
+          <TestingContainer>
+            <Image url={data.tech[0].image_link} credit1={data.tech[0].image_credit} credit2={data.tech[0].image_credit_2}></Image>
+            {data.tech.map(block => {
+              if (block.type ==="paragraph") {
+                return (
+                  <p>
+                    {block.content}
+                  </p>
+                )
+              }
+            })}
+            <Carousel images = {tech_links}
+              photographer = "PHOTOGRAPHER"
+              caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
+              >
+            </Carousel>
+          </TestingContainer>
         </Right>
       </Container>}
+
       {isMobile && <MobileContainer>
+        <Left>
+          <StickySidebar headings={data.sidebar} scroll={scroll}/>
+        </Left>
 
-          <StickySidebarMobile scroll={scroll}/>
+        <Right>
+          {/* kpop stuff first */}
+          <TestingContainer>
+            <Illo url={data.kpop[0].illo_link} credit1={data.kpop[0].illo_credit} credit2={data.kpop[0].illo_credit_2}/>
+            <Image url={data.kpop[1].graphic_link} credit1={data.kpop[1].graphic_credit} credit2={data.kpop[1].graphic_credit_2} ></Image>
+          </TestingContainer>
+          {/* hiphop */}
+          <TestingContainer>
+            <VideoPlayer url={data.hiphop[0].video_link} credit1={data.hiphop[0].video_credit} credit2={data.hiphop[0].video_credit_2}/>
+          </TestingContainer>
+          {/* culture */}
+          <TestingContainer>
+            <Illo url={data.culture[0].illo_link} credit1={data.culture[0].illo_credit} credit2={data.culture[0].illo_credit_2}></Illo>
+            <Carousel images = {culture_links}
+              photographer = "PHOTOGRAPHER"
+              caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
+              >
+            </Carousel>
+          </TestingContainer>
+          {/* makeup */}
+          <TestingContainer>
+            {console.log(makeup_links)}
+            <Carousel images = {makeup_links}
+              photographer = "PHOTOGRAPHER"
+              caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
+              >
+            </Carousel>
+            <Illo url={data.makeup[8].illo_link} credit1={data.makeup[8].illo_credit} credit2={data.makeup[8].illo_credit_2}></Illo>
+          </TestingContainer>
+          {/* tech */}
+          <TestingContainer>
+            <Image url={data.tech[0].image_link} credit1={data.tech[0].image_credit} credit2={data.tech[0].image_credit_2}></Image>
 
-    
-          <TestingContainer>section1</TestingContainer>
-          <TestingContainer>section2</TestingContainer>
-     
-        </MobileContainer>}
-     
-      <Illo />
-      { !isMobile && <PictureRow />}
-      { isMobile && <PictureRowMobile />}
-      <Carousel images = {["https://i.insider.com/6164e6d62457a4001982d6d6?width=1000&format=jpeg&auto=webp",
-        "https://media1.popsugar-assets.com/files/thumbor/CvY77oKxMvbrpjd1-TazkhzFJ2U/fit-in/728xorig/filters:format_auto-!!-:strip_icc-!!-/2021/10/27/851/n/1922283/36730ec66179a7bfcdf596.95187525_/i/jojo-siwa-dancing-with-the-stars-performances-videos.jpg",
-        "https://www.billboard.com/wp-content/uploads/2021/11/Jojo-Siwa-dancing-with-the-stars-2021-billboard-1548-1636472738.jpg",
-        "https://s31242.pcdn.co/wp-content/uploads/2021/11/jojo-siwa-dancing-with-the-stars.jpg",
-        "https://static.parade.com/wp-content/uploads/2021/09/dancing-with-the-stars-jenna-johnson-jojo-siwa-160626_5765.jpg",
-        "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2021%2F10%2F13%2FJoJo-Siwa-DWTS.jpg"
-        ]}
-        photographer = "PHOTOGRAPHER"
-        caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
-        ></Carousel>
+            {data.tech.map(block => {
+              if (block.type ==="paragraph") {
+                return (
+                  <p>
+                    {block.content}
+                  </p>
+                )
+              }
+            })}
 
+            <Carousel images = {tech_links}
+              photographer = "PHOTOGRAPHER"
+              caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
+              >
+            </Carousel>
+          </TestingContainer>
+        </Right>
+      </MobileContainer>}
       
-      <VideoPlayer />
+      
       <Footer/>
       
     </div>
