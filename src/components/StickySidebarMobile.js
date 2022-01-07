@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React, {useState} from 'react';
 import arrowimg from '../images/arrows.svg';
+
 const Sidebar = styled.div`
     display: flex;
     flex-direction: column;
@@ -9,19 +10,22 @@ const Sidebar = styled.div`
     /* background: grey; */
     position: -webkit-sticky; /* Safari & IE */
     position: sticky;
-    top: 5vh;
+    top: 3vh;
+    background: white;
+    padding-bottom: 3vh;
+    height: auto;
 `
 
 const TitleContainer = styled.div`
     background: white;
-    margin: 4vh;
+    margin: 3vh;
     font-family: 'Barlow', sans-serif;
-    font-size: 28px;
+    font-size: 25px;
     font-style: italic;
     font-weight: 900;
     text-align: left;
     padding-left: 10px;
-    border-left: 5px solid;
+    border-bottom: 5px solid;
 `
 
 const IntroContainer = styled.div`
@@ -57,23 +61,13 @@ const ReadMore = styled.div`
     font-size: 12px;
 `
 
-// const Arrows = styled.div`
-//     position: fixed;
-//     left: 0;
-//     background-image:url(${arrowimg});
-//     background-position: center;
-//     background-size: cover;
-//     min-height: 10px;
-// `
-
 const Arrows = styled.img`
-
-    /* float: right; */
     height: 3vh;
     align-self: flex-end;
 
 `
-export default function StickySidebar(props){
+
+export default function StickySidebarMobile(props){
     const fixedStyle={
         margin: 0,
         position: "fixed",
