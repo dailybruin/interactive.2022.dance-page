@@ -7,15 +7,15 @@ import styled from "styled-components";
 const Credits = styled.div`
     font-family: 'Barlow';
     font-size: 10px;
-    color: black;
+    color: white;
     text-align: right;
-    margin-right: 5%
+    /* margin-right: 5% */
 `
 
 const VideoPlayer = () => (
   <>
   <iframe 
-    width="95%" 
+    width="100%" 
     height="515" 
     src="https://www.youtube.com/embed/_u4Pv6Q5gaE" 
     title="Dance Disassembled" 
