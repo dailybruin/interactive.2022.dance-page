@@ -75,20 +75,11 @@ function App() {
   //set up kerck
   const [ data, setData ] = useState(null);
   useEffect(() => {
-<<<<<<< HEAD
 		fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/interactive.2022.dance-page")
 		.then(res => res.json())
 		.then(res => setData(res.data['article.aml']))
   }, [])
   let landing_link = "";
-=======
-		fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/interactive.2022.dance-page/")
-		.then(res => res.json())
-		.then(res => setData(res.data['article.aml']))
-  }, [])
-
-  //set up mobile identifier
->>>>>>> 240d889344ff8fb015077d27139d1debeaeb84ce
   const media = window.matchMedia('(max-width: 750px)');
   const [isMobile, setIsMobile] = useState(media.matches);
   console.log(isMobile);
