@@ -16,7 +16,7 @@ const Media = styled("img")`
     max-height:1000px; */
     justify-content:center;
     margin:auto;
-    width: 95%;
+    width: 100%;
     height: auto;
     background-color: black;
 `
@@ -27,7 +27,7 @@ const Credits = styled.div`
     font-size: 10px;
     color: white;
     text-align: right;
-    margin-right: 5%;
+    /* margin-right: 5%; */
 `;
 
 export default function Illo(props) {
