@@ -26,10 +26,11 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      Hello Daily Bruin!
-      <VideoPlayer />
+      
       <Landing/>
-      {/* <StickySidebar/> */}
+      <Illo />
+      { !isMobile && <PictureRow />}
+      { isMobile && <PictureRowMobile />}
       <Carousel images = {["https://i.insider.com/6164e6d62457a4001982d6d6?width=1000&format=jpeg&auto=webp",
         "https://media1.popsugar-assets.com/files/thumbor/CvY77oKxMvbrpjd1-TazkhzFJ2U/fit-in/728xorig/filters:format_auto-!!-:strip_icc-!!-/2021/10/27/851/n/1922283/36730ec66179a7bfcdf596.95187525_/i/jojo-siwa-dancing-with-the-stars-performances-videos.jpg",
         "https://www.billboard.com/wp-content/uploads/2021/11/Jojo-Siwa-dancing-with-the-stars-2021-billboard-1548-1636472738.jpg",
@@ -40,11 +41,9 @@ function App() {
         photographer = "PHOTOGRAPHER"
         caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
         ></Carousel>
-      {/* <PictureRow/> */}
-      <Illo />
-      <Image />
-      { !isMobile && <PictureRow />}
-      { isMobile && <PictureRowMobile />}
+
+      
+      <VideoPlayer />
       <Footer/>
       
     </div>
