@@ -53,7 +53,7 @@ const Right = styled.div`
     padding: 0 5vh 3vh 5vh;
 `
 
-const TestingContainer = styled.div`
+const SectionContainer = styled.div`
     /* min-height: 100vh; */
     border-bottom: 0.5px solid #696969;
     background-color: black;
@@ -180,24 +180,24 @@ function App() {
         </Left>
         <Right>
           {/* kpop stuff first */}
-          <TestingContainer>
+          <SectionContainer>
             <Image url={data.kpop[0].graphic_link} credit1={""} credit2={""} ></Image>
-          </TestingContainer>
+          </SectionContainer>
           {/* hiphop */}
-          <TestingContainer>
+          <SectionContainer>
             <VideoPlayer url={data.hiphop[0].video_link} credit1={data.hiphop[0].video_credit} credit2={data.hiphop[0].video_credit_2}/>
-          </TestingContainer>
+          </SectionContainer>
           {/* culture */}
-          <TestingContainer>
+          <SectionContainer>
             <Illo url={data.culture[0].illo_link} credit1={data.culture[0].illo_credit} credit2={data.culture[0].illo_credit_2}></Illo>
             <Carousel images = {culture_links}
               photographer = {culture_credit}
               caption={culture_captions}
               >
             </Carousel>
-          </TestingContainer>
+          </SectionContainer>
           {/* makeup */}
-          <TestingContainer>
+          <SectionContainer>
             {console.log(makeup_links)}
             <Carousel images = {makeup_links}
               photographer = {makeup_credit}
@@ -205,9 +205,9 @@ function App() {
               >
             </Carousel>
             <Illo url={data.makeup[8].illo_link} credit1={data.makeup[8].illo_credit} credit2={data.makeup[8].illo_credit_2}></Illo>
-          </TestingContainer>
+          </SectionContainer>
           {/* tech */}
-          <TestingContainer>
+          <SectionContainer>
             <Illo url={data.tech[0].image_link} credit1={data.tech[0].image_credit} credit2={data.tech[0].image_credit_2}></Illo>
             {data.tech.map(block => {
               
@@ -230,7 +230,7 @@ function App() {
                 );
               }
             })}
-          </TestingContainer>
+          </SectionContainer>
         </Right>
       </Container>}
 
@@ -239,27 +239,27 @@ function App() {
         
           {/* kpop stuff first */}
           <StickySidebarMobile headings={data.sidebar} scroll={scroll}/>
-          <TestingContainer>
+          <SectionContainer>
             <Image url={data.kpop[0].graphic_link} credit1={data.kpop[0].graphic_credit} credit2={data.kpop[0].graphic_credit_2} ></Image>
-          </TestingContainer>
+          </SectionContainer>
           {/* hiphop */}
           {/* <StickySidebarMobile title={data.sidebar[1].title} link={data.sidebar[1].link} intro={data.sidebar[1].text}/> */}
-          <TestingContainer>
+          <SectionContainer>
             <VideoPlayer url={data.hiphop[0].video_link} credit1={data.hiphop[0].video_credit} credit2={data.hiphop[0].video_credit_2}/>
-          </TestingContainer>
+          </SectionContainer>
           {/* culture */}
           {/* <StickySidebarMobile title={data.sidebar[2].title} link={data.sidebar[2].link} intro={data.sidebar[2].text}/> */}
-          <TestingContainer>
+          <SectionContainer>
             <Illo url={data.culture[0].illo_link} credit1={data.culture[0].illo_credit} credit2={data.culture[0].illo_credit_2}></Illo>
             <Carousel images = {culture_links}
               photographer = {culture_credit}
               caption={culture_captions}
               >
             </Carousel>
-          </TestingContainer>
+          </SectionContainer>
           {/* makeup */}
           {/* <StickySidebarMobile title={data.sidebar[3].title} link={data.sidebar[3].link} intro={data.sidebar[3].text}/> */}
-          <TestingContainer>
+          <SectionContainer>
             {console.log(makeup_links)}
             <Carousel images = {makeup_links}
               photographer = {makeup_credit}
@@ -267,10 +267,10 @@ function App() {
               >
             </Carousel>
             <Illo url={data.makeup[8].illo_link} credit1={data.makeup[8].illo_credit} credit2={data.makeup[8].illo_credit_2}></Illo>
-          </TestingContainer>
+          </SectionContainer>
           {/* tech */}
           {/* <StickySidebarMobile title={data.sidebar[4].title} link={data.sidebar[4].link} intro={data.sidebar[4].text}/> */}
-          <TestingContainer>
+          <SectionContainer>
             <Illo url={data.tech[0].image_link} credit1={data.tech[0].image_credit} credit2={data.tech[0].image_credit_2}></Illo>
             {data.tech.map(block => {
               if (block.type ==="paragraph") {
@@ -292,7 +292,7 @@ function App() {
                 );
               }
             })}
-          </TestingContainer>
+          </SectionContainer>
       </MobileContainer>}
 
       <Footer/>
