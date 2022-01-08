@@ -256,7 +256,7 @@ function App() {
                 return (
                   <Carousel images = {tech_links}
                   photographer = "Ariana Fadel"
-                  credit2="Daily Bruin Staff"
+                  credit2="Daily Bruin staff"
                   caption = {tech_captions}
                   >
                   </Carousel>
@@ -331,7 +331,7 @@ function App() {
                 return (
                   <Carousel images = {tech_links}
                   photographer = "Ariana Fadel"
-                  credit2="Daily Bruin Staff"
+                  credit2="Daily Bruin staff"
                   caption = {tech_captions}
                   >
                   </Carousel>
