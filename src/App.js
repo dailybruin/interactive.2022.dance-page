@@ -104,7 +104,7 @@ function App() {
           const totalScroll = document.documentElement.scrollTop;
           const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
           const windowWidth = document.documentElement.clientWidth;
-          const scroll = `${totalScroll / (windowHeight+windowWidth) * 100}`;
+          const scroll = `${totalScroll / (windowHeight) * 100}`;
           setScroll(scroll);
       }
       // console.log(scroll);
