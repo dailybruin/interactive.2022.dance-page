@@ -43,6 +43,9 @@ const IntroContainer = styled.div`
     font-family: 'Barlow', sans-serif;
     text-align: left;
     margin-bottom: 20px;
+    ${mediaQueries.tablet} {
+        margin: 0 3vh;
+    }
 `
 
 const Intro = styled.div`
