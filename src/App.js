@@ -282,26 +282,27 @@ function App() {
         
           {/* kpop stuff first */}
           <StickySidebarMobile headings={data.sidebar} scroll={scroll}/>
-          <SectionContainer>
+           {/* kpop stuff first */}
+           <SectionContainer>
             <Image url={data.kpop[0].graphic_link} credit1={""} credit2={""} ></Image>
+            {/* <Image url={graphic} credit1={""} credit2={""} ></Image> */}
           </SectionContainer>
           {/* hiphop */}
-          {/* <StickySidebarMobile title={data.sidebar[1].title} link={data.sidebar[1].link} intro={data.sidebar[1].text}/> */}
           <SectionContainer>
             <VideoPlayer url={data.hiphop[0].video_link} credit1={data.hiphop[0].video_credit} credit2={data.hiphop[0].video_credit_2}/>
           </SectionContainer>
           {/* culture */}
-          {/* <StickySidebarMobile title={data.sidebar[2].title} link={data.sidebar[2].link} intro={data.sidebar[2].text}/> */}
           <SectionContainer>
             <Illo url={data.culture[0].illo_link} credit1={data.culture[0].illo_credit} credit2={data.culture[0].illo_credit_2}></Illo>
             <Carousel images = {culture_links}
               photographer = {culture_credit}
+              credit2={culture_credit_2}
               caption={culture_captions}
               >
             </Carousel>
+            {/* <Div style={{backgroundColor: "white"}}>hihi hihi hihi </Div> */}
           </SectionContainer>
           {/* makeup */}
-          {/* <StickySidebarMobile title={data.sidebar[3].title} link={data.sidebar[3].link} intro={data.sidebar[3].text}/> */}
           <SectionContainer>
             {console.log(makeup_links)}
             <Carousel images = {makeup_links}
@@ -313,16 +314,16 @@ function App() {
             <Illo url={data.makeup[8].illo_link} credit1={data.makeup[8].illo_credit} credit2={data.makeup[8].illo_credit_2}></Illo>
           </SectionContainer>
           {/* tech */}
-          {/* <StickySidebarMobile title={data.sidebar[4].title} link={data.sidebar[4].link} intro={data.sidebar[4].text}/> */}
           <SectionContainer>
             <Illo url={data.tech[0].image_link} credit1={data.tech[0].image_credit} credit2={data.tech[0].image_credit_2}></Illo>
             {data.tech.map(block => {
+              
               if (block.type ==="paragraph") {
                 return (
                   <P>
                     {block.content}
                   </P>
-                )
+                );
               }
 
               else if (block.type === "carousel" && num === 0) {
@@ -330,13 +331,13 @@ function App() {
                 return (
                   <Carousel images = {tech_links}
                   photographer = "Ariana Fadel"
-                  credit2="Daily Bruin"
+                  credit2="Daily Bruin Staff"
                   caption = {tech_captions}
                   >
                   </Carousel>
                 );
               }
-              
+
               else if (block.type === "byline") {
                 return (
                   <>
