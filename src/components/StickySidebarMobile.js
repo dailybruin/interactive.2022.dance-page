@@ -37,6 +37,7 @@ const IntroContainer = styled.div`
     padding: 3vh 1vh 0.5vh 1vh;
     font-family: 'Barlow', sans-serif;
     text-align: left;
+    margin-bottom: 20px;
 `
 
 const Intro = styled.div`
@@ -73,6 +74,7 @@ export default function StickySidebarMobile(props){
         position: "fixed",
         top: " 5vh",
         left: "8vw",  
+        
          
     };
 
@@ -81,23 +83,16 @@ export default function StickySidebarMobile(props){
 
     let scroll = props.scroll;
     console.log(scroll);
-    let title = "";
-    let intro = "";
-    if (scroll <= 81){
-        title = "Student dance groups bring K-pop dance routines to UCLA ";
-        intro = "Put on your dancing shoes and follow along as columnist Laura Carter takes a behind-the-scenes look at dance, disassembled.";
-    }
-    else{
-        title = "section 2";
-        intro = "description";
-    }
+    let title = props.title;
+    let intro = props.intro;
+    let link = props.link;
 
     return(
         <>
-            <Sidebar
+            {/* <Sidebar
                 percent={props.scroll}
                 // style={props.scroll >= 42 ? fixedStyle : standardStyle}
-            >
+            > */}
                 <TitleContainer>
                     {title}
                 </TitleContainer>
@@ -106,12 +101,16 @@ export default function StickySidebarMobile(props){
                     <Intro>
                         {intro}
                     </Intro>
-                    <ReadMore>
-                       <div>read more</div>
-                       <Arrows src={arrowimg}/>
-                    </ReadMore>
+                    <a href={link} style={{textDecoration: "none", color: 'black'}}>
+                        <ReadMore>
+                        <a href={link} style={{textDecoration: "none", color: 'black'}}>read more</a>
+                        <a href={link} style={{textDecoration: "none", color: 'black'}}>
+                            <Arrows src={arrowimg}/>
+                        </a>
+                        </ReadMore>
+                    </a>
                 </IntroContainer>
-            </Sidebar>
+            {/* </Sidebar> */}
         </>
 
     );

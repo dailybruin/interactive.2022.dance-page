@@ -10,6 +10,14 @@ const Container = styled.div`
     height: 97vh;
 `
 
+const MobileContainer = styled.div`
+    background-image: url(${props=>props.src});
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    height: 50vh;
+`
+
 const Credits = styled("div")`
   position: absolute;
   bottom: 30px;
@@ -32,9 +40,9 @@ export default function Landing(props){
         
         <>
         
-            {isMobile && <Container src={props.url}>
+            {isMobile && <MobileContainer src="https://assets.dailybruin.com/images/interactive.2022.dance-page/vertical-landing.gif">
                 <Credits><strong>Biona Hui</strong>/Daily Bruin</Credits>
-            </Container>}
+            </MobileContainer>}
 
             {!isMobile && <Container src={props.url}>
                 <Credits><strong>Biona Hui</strong>/Daily Bruin</Credits>

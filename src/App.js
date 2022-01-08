@@ -35,7 +35,7 @@ background-color: black;
 `;
 
 const Container = styled.div`
-    display: flex;
+  display: flex;
 `
 
 const MobileContainer = styled.div`
@@ -72,6 +72,8 @@ const P = styled.p`
 font-size: 15px;
 font-family: 'Barlow', sans-serif;
 text-align: left;
+margin-left: 15px;
+margin-right: 15px;
 `;
 
 function App() {
@@ -162,24 +164,19 @@ function App() {
   });
 
   
-
-  //testing
-
-
-  // let introText = data.intro;
   let num = 0;
   return (
      <div className="App">
        <Header/>
-      <Landing url={data.landing_image}/>
+       <Landing url={data.landing_image}/>
       <IntroText>
         {data.intro}
       </IntroText>
+
       {!isMobile && <Container>
         <Left>
           <StickySidebar headings={data.sidebar} scroll={scroll}/>
         </Left>
-
         <Right>
           {/* kpop stuff first */}
           <TestingContainer>
@@ -236,44 +233,44 @@ function App() {
         </Right>
       </Container>}
 
-      {isMobile && <MobileContainer>
-        <Left>
-          <StickySidebar headings={data.sidebar} scroll={scroll}/>
-        </Left>
-
-        <Right>
+      {isMobile && 
+      <MobileContainer>
+        
           {/* kpop stuff first */}
+          <StickySidebarMobile title={data.sidebar[0].title} link={data.sidebar[0].link} intro={data.sidebar[0].text}/>
           <TestingContainer>
-            <Illo url={data.kpop[0].illo_link} credit1={data.kpop[0].illo_credit} credit2={data.kpop[0].illo_credit_2}/>
-            <Image url={data.kpop[1].graphic_link} credit1={data.kpop[1].graphic_credit} credit2={data.kpop[1].graphic_credit_2} ></Image>
+            <Image url={data.kpop[0].graphic_link} credit1={data.kpop[0].graphic_credit} credit2={data.kpop[0].graphic_credit_2} ></Image>
           </TestingContainer>
           {/* hiphop */}
+          <StickySidebarMobile title={data.sidebar[1].title} link={data.sidebar[1].link} intro={data.sidebar[1].text}/>
           <TestingContainer>
             <VideoPlayer url={data.hiphop[0].video_link} credit1={data.hiphop[0].video_credit} credit2={data.hiphop[0].video_credit_2}/>
           </TestingContainer>
           {/* culture */}
+          <StickySidebarMobile title={data.sidebar[2].title} link={data.sidebar[2].link} intro={data.sidebar[2].text}/>
           <TestingContainer>
             <Illo url={data.culture[0].illo_link} credit1={data.culture[0].illo_credit} credit2={data.culture[0].illo_credit_2}></Illo>
             <Carousel images = {culture_links}
-              photographer = "PHOTOGRAPHER"
-              caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
+              photographer = {culture_credit}
+              caption={culture_captions}
               >
             </Carousel>
           </TestingContainer>
           {/* makeup */}
+          <StickySidebarMobile title={data.sidebar[3].title} link={data.sidebar[3].link} intro={data.sidebar[3].text}/>
           <TestingContainer>
             {console.log(makeup_links)}
             <Carousel images = {makeup_links}
-              photographer = "PHOTOGRAPHER"
-              caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
+              photographer = {makeup_credit}
+              caption = {makeup_captions}
               >
             </Carousel>
             <Illo url={data.makeup[8].illo_link} credit1={data.makeup[8].illo_credit} credit2={data.makeup[8].illo_credit_2}></Illo>
           </TestingContainer>
           {/* tech */}
+          <StickySidebarMobile title={data.sidebar[4].title} link={data.sidebar[4].link} intro={data.sidebar[4].text}/>
           <TestingContainer>
             <Image url={data.tech[0].image_link} credit1={data.tech[0].image_credit} credit2={data.tech[0].image_credit_2}></Image>
-
             {data.tech.map(block => {
               if (block.type ==="paragraph") {
                 return (
@@ -282,21 +279,23 @@ function App() {
                   </P>
                 )
               }
-            })}
 
-            <Carousel images = {tech_links}
-              photographer = "PHOTOGRAPHER"
-              caption = "Caption. Caption caption caption. Caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption caption"
-              >
-            </Carousel>
+              if (block.type === "carousel" && num === 0) {
+                num = num + 1;
+                return (
+                  <Carousel images = {tech_links}
+                  photographer = "Ariana Fadel"
+                  caption = {tech_captions}
+                  >
+                  </Carousel>
+                );
+              }
+            })}
           </TestingContainer>
-        </Right>
       </MobileContainer>}
-      
-      
+
       <Footer/>
-      
-    </div>
+      </div>
   );
 }
 
