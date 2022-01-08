@@ -6,14 +6,12 @@ import Footer from './components/Footer';
 import VideoPlayer from "./components/VideoPlayer";
 import Landing from "./components/Landing";
 import StickySidebar from "./components/StickySidebar";
-// import PictureRow from "./components/PictureRow";
 import Carousel from "./components/Carousel";
 import Illo from "./components/Illo";
 import Image from "./components/Image";
-import PictureRow from "./components/PictureRow";
-import PictureRowMobile from './components/PictureRowMobile'    
 import StickySidebarMobile from "./components/StickySidebarMobile";
 import { mediaQueries } from './shared/config';
+import graphic from './images/bigGraphic.png';
 
 const IntroText = styled.div`
     display: flex;
@@ -193,7 +191,8 @@ function App() {
         <Right>
           {/* kpop stuff first */}
           <SectionContainer>
-            <Image url={data.kpop[0].graphic_link} credit1={""} credit2={""} ></Image>
+            {/* <Image url={data.kpop[0].graphic_link} credit1={""} credit2={""} ></Image> */}
+            <Image url={graphic} credit1={""} credit2={""} ></Image>
           </SectionContainer>
           {/* hiphop */}
           <SectionContainer>
