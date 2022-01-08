@@ -15,7 +15,7 @@ const MobileContainer = styled.div`
     background-position: center;
     background-size: cover;
     position: relative;
-    height: 50vh;
+    height: 97vh;
 `
 
 const Credits = styled("div")`
