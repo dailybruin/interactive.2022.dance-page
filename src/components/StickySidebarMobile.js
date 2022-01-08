@@ -94,24 +94,24 @@ export default function StickySidebarMobile(props){
     let title = "";
     let intro = "";
     let link = "";
-    if (scroll <= 44){
+    if (scroll <= 34.7){
         title = props.headings[0].title;
         intro = props.headings[0].text;
         link = props.headings[0].link;
     }
-    else if (scroll <= 55) {
+    else if (scroll <= 43.5) {
         title = props.headings[1].title;
         intro = props.headings[1].text;
         link = props.headings[1].link;
     }
 
-    else if (scroll <= 67) {
+    else if (scroll <= 52.5) {
         title = props.headings[2].title;
         intro = props.headings[2].text;
         link = props.headings[2].link;
     }
 
-    else if (scroll <= 80) {
+    else if (scroll <= 63.4) {
         title = props.headings[3].title;
         intro = props.headings[3].text;
         link = props.headings[3].link;
