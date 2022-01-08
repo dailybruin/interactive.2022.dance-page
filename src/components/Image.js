@@ -51,7 +51,7 @@ export default function Image(props) {
     return(
         <Container>
             <Media src={props.url}/>
-            <Credits><b>{props.credit1}</b>/Daily Bruin Staff</Credits>
+            <Credits><b>{props.credit1}</b>/{props.credit2}</Credits>
             <Caption> {props.caption} </Caption>
         </Container>
     )

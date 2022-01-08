@@ -28,6 +28,7 @@ const CaptionDiv = styled.div`
     font-family: 'Barlow', sans-serif;
     color: white;
     padding-bottom: 7px;
+    margin-bottom: 20px;
 `
 
 function SampleNextArrow(props) {

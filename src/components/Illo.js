@@ -7,6 +7,7 @@ const Container = styled("div")`
     text-align:center;
     justify-content:center;
     background-color: black;
+    margin-bottom: 25px;
     /* margin: 20px auto; */
 `
 

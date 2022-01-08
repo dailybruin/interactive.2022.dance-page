@@ -66,6 +66,7 @@ const TestingContainer = styled.div`
     background-color: black;
     color: white;
     padding-bottom: 30px;
+    margin-bottom: 20px;
 `
 
 const P = styled.p`
