@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Slider from "react-slick";
 
 let sliderHeight = 250
-let imageWidth = 300
+let imageWidth = 320
 
 const CarouselDiv = styled.div`
     padding-top: 10px;

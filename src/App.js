@@ -76,6 +76,18 @@ const P = styled.p`
     }
 `;
 
+const Byline = styled.div`
+    text-align: left;
+    font-size: 18px;
+    font-family: 'Barlow', sans-serif;
+    text-transform: uppercase;
+`
+
+const Credit = styled.div`
+    text-align: left;
+    font-size: 13px;
+    font-family: 'Barlow', sans-serif;
+`
 function App() {
 
   //set up kerck
@@ -216,10 +228,10 @@ function App() {
                   <P>
                     {block.content}
                   </P>
-                )
+                );
               }
 
-              if (block.type === "carousel" && num === 0) {
+              else if (block.type === "carousel" && num === 0) {
                 num = num + 1;
                 return (
                   <Carousel images = {tech_links}
@@ -229,6 +241,16 @@ function App() {
                   </Carousel>
                 );
               }
+
+              else if (block.type === "byline") {
+                return (
+                  <>
+                    <Byline><strong>by {block.byline}</strong></Byline>
+                    <Credit>{block.byline_title}</Credit>
+                  </>
+                )
+              }
+              
             })}
           </SectionContainer>
         </Right>
