@@ -143,6 +143,10 @@ function App() {
   let makeup_credit = "";
   let tech_credit = "";
 
+  let culture_credit_2 = "";
+  let makeup_credit_2 = "";
+  let tech_credit_2 = "";
+
   data.culture.forEach(element => {
     if (element.type === "carousel") {
       culture_links.push(element.image_link)
@@ -151,6 +155,7 @@ function App() {
 
     if (element.type === "carousel_credit") {
       culture_credit = element.credit;
+      culture_credit_2 = element.carousel_credit_2;
     }
     
   });
@@ -163,6 +168,7 @@ function App() {
 
     if (element.type === "carousel_credit") {
       makeup_credit = element.credit;
+      makeup_credit_2 = element.carousel_credit_2;
     }
     
   });
@@ -208,6 +214,7 @@ function App() {
             <Illo url={data.culture[0].illo_link} credit1={data.culture[0].illo_credit} credit2={data.culture[0].illo_credit_2}></Illo>
             <Carousel images = {culture_links}
               photographer = {culture_credit}
+              credit2={culture_credit_2}
               caption={culture_captions}
               >
             </Carousel>
@@ -217,6 +224,7 @@ function App() {
             {console.log(makeup_links)}
             <Carousel images = {makeup_links}
               photographer = {makeup_credit}
+              credit2={makeup_credit_2}
               caption = {makeup_captions}
               >
             </Carousel>
@@ -240,6 +248,7 @@ function App() {
                 return (
                   <Carousel images = {tech_links}
                   photographer = "Ariana Fadel"
+                  credit2="Daily Bruin Staff"
                   caption = {tech_captions}
                   >
                   </Carousel>
@@ -289,6 +298,7 @@ function App() {
             {console.log(makeup_links)}
             <Carousel images = {makeup_links}
               photographer = {makeup_credit}
+              credit2={makeup_credit_2}
               caption = {makeup_captions}
               >
             </Carousel>
@@ -312,6 +322,7 @@ function App() {
                 return (
                   <Carousel images = {tech_links}
                   photographer = "Ariana Fadel"
+                  credit2="Daily Bruin"
                   caption = {tech_captions}
                   >
                   </Carousel>

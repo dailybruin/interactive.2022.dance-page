@@ -88,7 +88,7 @@ export default function Carousel(props) {
                 {imageSlider}
                 </Slider>
             </CarouselDiv>
-            <CredsDiv><strong>{props.photographer}</strong>/Daily Bruin</CredsDiv>
+            <CredsDiv><strong>{props.photographer}</strong>/{props.credit2}</CredsDiv>
             <CaptionDiv>{caption}</CaptionDiv>
         </div>
     );
