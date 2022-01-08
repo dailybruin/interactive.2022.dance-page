@@ -62,11 +62,11 @@ const Down = styled.div`
 
 const TestingContainer = styled.div`
     /* min-height: 100vh; */
-    border: 0.5px solid #696969;
+    border-bottom: 0.5px solid #696969;
     background-color: black;
     color: white;
     padding-bottom: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 5vh;
 `
 
 const P = styled.p`
