@@ -41,12 +41,10 @@ const Container = styled.div`
 const MobileContainer = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: black;
 `
 
 const Left = styled.div`
     width: 25%;
-    /* background-color: black; */
 `
 
 const Right = styled.div`
@@ -238,12 +236,12 @@ function App() {
             <Image url={data.kpop[0].graphic_link} credit1={data.kpop[0].graphic_credit} credit2={data.kpop[0].graphic_credit_2} ></Image>
           </TestingContainer>
           {/* hiphop */}
-          <StickySidebarMobile title={data.sidebar[1].title} link={data.sidebar[1].link} intro={data.sidebar[1].text}/>
+          {/* <StickySidebarMobile title={data.sidebar[1].title} link={data.sidebar[1].link} intro={data.sidebar[1].text}/> */}
           <TestingContainer>
             <VideoPlayer url={data.hiphop[0].video_link} credit1={data.hiphop[0].video_credit} credit2={data.hiphop[0].video_credit_2}/>
           </TestingContainer>
           {/* culture */}
-          <StickySidebarMobile title={data.sidebar[2].title} link={data.sidebar[2].link} intro={data.sidebar[2].text}/>
+          {/* <StickySidebarMobile title={data.sidebar[2].title} link={data.sidebar[2].link} intro={data.sidebar[2].text}/> */}
           <TestingContainer>
             <Illo url={data.culture[0].illo_link} credit1={data.culture[0].illo_credit} credit2={data.culture[0].illo_credit_2}></Illo>
             <Carousel images = {culture_links}
@@ -253,7 +251,7 @@ function App() {
             </Carousel>
           </TestingContainer>
           {/* makeup */}
-          <StickySidebarMobile title={data.sidebar[3].title} link={data.sidebar[3].link} intro={data.sidebar[3].text}/>
+          {/* <StickySidebarMobile title={data.sidebar[3].title} link={data.sidebar[3].link} intro={data.sidebar[3].text}/> */}
           <TestingContainer>
             {console.log(makeup_links)}
             <Carousel images = {makeup_links}
@@ -264,7 +262,7 @@ function App() {
             <Illo url={data.makeup[8].illo_link} credit1={data.makeup[8].illo_credit} credit2={data.makeup[8].illo_credit_2}></Illo>
           </TestingContainer>
           {/* tech */}
-          <StickySidebarMobile title={data.sidebar[4].title} link={data.sidebar[4].link} intro={data.sidebar[4].text}/>
+          {/* <StickySidebarMobile title={data.sidebar[4].title} link={data.sidebar[4].link} intro={data.sidebar[4].text}/> */}
           <TestingContainer>
             <Image url={data.tech[0].image_link} credit1={data.tech[0].image_credit} credit2={data.tech[0].image_credit_2}></Image>
             {data.tech.map(block => {

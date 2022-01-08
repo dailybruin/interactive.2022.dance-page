@@ -88,11 +88,11 @@ export default function StickySidebarMobile(props){
     let link = props.link;
 
     return(
-        <>
-            {/* <Sidebar
+      
+            <Sidebar
                 percent={props.scroll}
                 // style={props.scroll >= 42 ? fixedStyle : standardStyle}
-            > */}
+            >
                 <TitleContainer>
                     {title}
                 </TitleContainer>
@@ -110,8 +110,8 @@ export default function StickySidebarMobile(props){
                         </ReadMore>
                     </a>
                 </IntroContainer>
-            {/* </Sidebar> */}
-        </>
+            </Sidebar>
+     
 
     );
 }
