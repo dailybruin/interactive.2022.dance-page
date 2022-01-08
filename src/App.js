@@ -66,8 +66,8 @@ const P = styled.p`
 font-size: 15px;
 font-family: 'Barlow', sans-serif;
 text-align: left;
-margin-left: 15px;
-margin-right: 15px;
+/* margin-left: 15px;
+margin-right: 15px; */
 `;
 
 function App() {
