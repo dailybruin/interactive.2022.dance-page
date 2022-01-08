@@ -28,7 +28,7 @@ const Credits = styled.div`
     font-size: 10px;
     color: white;
     text-align: right;
-    margin-right: 5%;
+    /* margin-right: 5%; */
 `
 /* TODO: change to color: white */
 const Caption = styled.div`
@@ -36,7 +36,7 @@ const Caption = styled.div`
     font-size: 14px;
     color: white;
     text-align: right;
-    margin-right: 5%;
+    /* margin-right: 5%; */
 `;
 
 export default function Image(props) {
@@ -51,7 +51,7 @@ export default function Image(props) {
     return(
         <Container>
             <Media src={props.url}/>
-            <Credits><b>{props.credit1}</b>/{props.credit2}</Credits>
+            <Credits><b>{props.credit1}</b>{props.credit2}</Credits>
             <Caption> {props.caption} </Caption>
         </Container>
     )

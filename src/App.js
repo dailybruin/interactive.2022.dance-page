@@ -58,7 +58,7 @@ const TestingContainer = styled.div`
     border-bottom: 0.5px solid #696969;
     background-color: black;
     color: white;
-    padding-bottom: 30px;
+    padding-bottom: 5vh;
     margin-bottom: 5vh;
 `
 
@@ -174,7 +174,7 @@ function App() {
         <Right>
           {/* kpop stuff first */}
           <TestingContainer>
-            <Image url={data.kpop[0].graphic_link} credit1={data.kpop[0].graphic_credit} credit2={data.kpop[0].graphic_credit_2} ></Image>
+            <Image url={data.kpop[0].graphic_link} credit1={""} credit2={""} ></Image>
           </TestingContainer>
           {/* hiphop */}
           <TestingContainer>
@@ -201,7 +201,7 @@ function App() {
           </TestingContainer>
           {/* tech */}
           <TestingContainer>
-            <Image url={data.tech[0].image_link} credit1={data.tech[0].image_credit} credit2={data.tech[0].image_credit_2}></Image>
+            <Illo url={data.tech[0].image_link} credit1={data.tech[0].image_credit} credit2={data.tech[0].image_credit_2}></Illo>
             {data.tech.map(block => {
               
               if (block.type ==="paragraph") {
@@ -264,7 +264,7 @@ function App() {
           {/* tech */}
           {/* <StickySidebarMobile title={data.sidebar[4].title} link={data.sidebar[4].link} intro={data.sidebar[4].text}/> */}
           <TestingContainer>
-            <Image url={data.tech[0].image_link} credit1={data.tech[0].image_credit} credit2={data.tech[0].image_credit_2}></Image>
+            <Illo url={data.tech[0].image_link} credit1={data.tech[0].image_credit} credit2={data.tech[0].image_credit_2}></Illo>
             {data.tech.map(block => {
               if (block.type ==="paragraph") {
                 return (

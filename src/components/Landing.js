@@ -41,11 +41,11 @@ export default function Landing(props){
         <>
         
             {isMobile && <MobileContainer src="https://assets.dailybruin.com/images/interactive.2022.dance-page/vertical-landing.gif">
-                <Credits><strong>Biona Hui</strong>/Daily Bruin</Credits>
+                <Credits><strong>Biona Hui</strong>/Daily Bruin staff</Credits>
             </MobileContainer>}
 
             {!isMobile && <Container src={props.url}>
-                <Credits><strong>Biona Hui</strong>/Daily Bruin</Credits>
+                <Credits><strong>Biona Hui</strong>/Daily Bruin staff</Credits>
             </Container>}
             
         </>
