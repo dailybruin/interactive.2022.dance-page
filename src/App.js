@@ -60,14 +60,20 @@ const TestingContainer = styled.div`
     color: white;
     padding-bottom: 5vh;
     margin-bottom: 5vh;
+    ${mediaQueries.tablet} {
+      color:red;
+    }
 `
 
 const P = styled.p`
-font-size: 15px;
-font-family: 'Barlow', sans-serif;
-text-align: left;
-/* margin-left: 15px;
-margin-right: 15px; */
+    font-size: 15px;
+    font-family: 'Barlow', sans-serif;
+    text-align: left;
+    /* margin-left: 15px;
+    margin-right: 15px; */
+    ${mediaQueries.tablet} {
+      font-color: red;
+    }
 `;
 
 function App() {
@@ -81,7 +87,7 @@ function App() {
   }, [])
   
   let landing_link = "";
-  const media = window.matchMedia('(max-width: 750px)');
+  const media = window.matchMedia('(max-width: 900px)');
   const [isMobile, setIsMobile] = useState(media.matches);
   console.log(isMobile);
   media.addEventListener('change', () => {
@@ -97,7 +103,8 @@ function App() {
       let progressBarHandler = () => {            
           const totalScroll = document.documentElement.scrollTop;
           const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-          const scroll = `${totalScroll / windowHeight * 100}`;
+          const windowWidth = document.documentElement.clientWidth;
+          const scroll = `${totalScroll / (windowHeight+windowWidth) * 100}`;
           setScroll(scroll);
       }
       // console.log(scroll);
