@@ -231,7 +231,7 @@ function App() {
       <MobileContainer>
         
           {/* kpop stuff first */}
-          <StickySidebarMobile title={data.sidebar[0].title} link={data.sidebar[0].link} intro={data.sidebar[0].text}/>
+          <StickySidebarMobile headings={data.sidebar} scroll={scroll}/>
           <TestingContainer>
             <Image url={data.kpop[0].graphic_link} credit1={data.kpop[0].graphic_credit} credit2={data.kpop[0].graphic_credit_2} ></Image>
           </TestingContainer>

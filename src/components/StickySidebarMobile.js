@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React, {useState} from 'react';
 import arrowimg from '../images/arrows.svg';
+import { mediaQueries } from '../shared/config';
 
 const Sidebar = styled.div`
     display: flex;
@@ -14,6 +15,7 @@ const Sidebar = styled.div`
     background: white;
     padding-bottom: 3vh;
     height: auto;
+    z-index: 999;
 `
 
 const TitleContainer = styled.div`
@@ -26,6 +28,9 @@ const TitleContainer = styled.div`
     text-align: left;
     padding-left: 10px;
     border-bottom: 5px solid;
+    ${mediaQueries.tablet} {
+      padding-bottom: 15px;
+    }
 `
 
 const IntroContainer = styled.div`
@@ -83,9 +88,38 @@ export default function StickySidebarMobile(props){
 
     let scroll = props.scroll;
     console.log(scroll);
-    let title = props.title;
-    let intro = props.intro;
-    let link = props.link;
+    let title = "";
+    let intro = "";
+    let link = "";
+    if (scroll <= 42){
+        title = props.headings[0].title;
+        intro = props.headings[0].text;
+        link = props.headings[0].link;
+    }
+    else if (scroll <= 52) {
+        title = props.headings[1].title;
+        intro = props.headings[1].text;
+        link = props.headings[1].link;
+    }
+
+    else if (scroll <= 65) {
+        title = props.headings[2].title;
+        intro = props.headings[2].text;
+        link = props.headings[2].link;
+    }
+
+    else if (scroll <= 76) {
+        title = props.headings[3].title;
+        intro = props.headings[3].text;
+        link = props.headings[3].link;
+    }
+
+    else {
+        title = props.headings[4].title;
+        intro = props.headings[4].text;
+        link = props.headings[4].link;
+
+    }
 
     return(
       
