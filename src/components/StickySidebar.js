@@ -11,7 +11,7 @@ const Sidebar = styled.div`
     position: sticky;
     top: 5vh;
 `
-
+;
 const TitleContainer = styled.div`
     background: white;
     margin: 4vh;
@@ -39,6 +39,13 @@ const Intro = styled.div`
     font-weight: 400;
     font-size: 14px;
     /* color: white; */
+`
+
+const FakeIntro = styled.div`
+    font-weight: 400;
+    font-size: 14px;
+    /* color: white; */
+    padding-bottom: 3vh;
 `
 
 const ReadMore = styled.div`
@@ -90,30 +97,37 @@ export default function StickySidebar(props){
     let title = "";
     let intro = "";
     let link = "";
+    let section_num = 1;
+
     if (scroll <= 42){
+        section_num = 1;
         title = props.headings[0].title;
         intro = props.headings[0].text;
         link = props.headings[0].link;
     }
     else if (scroll <= 52) {
+        section_num = 2;
         title = props.headings[1].title;
         intro = props.headings[1].text;
         link = props.headings[1].link;
     }
 
     else if (scroll <= 65) {
+        section_num = 3;
         title = props.headings[2].title;
         intro = props.headings[2].text;
         link = props.headings[2].link;
     }
 
     else if (scroll <= 76) {
+        section_num = 4;
         title = props.headings[3].title;
         intro = props.headings[3].text;
         link = props.headings[3].link;
     }
 
     else {
+        section_num = 5;
         title = props.headings[4].title;
         intro = props.headings[4].text;
         link = props.headings[4].link;
@@ -129,12 +143,15 @@ export default function StickySidebar(props){
                 <TitleContainer>
                     {title}
                 </TitleContainer>
-
                 <IntroContainer>
+                {section_num !== 5 && 
+                <>
                     <Intro>
                         {intro}
                     </Intro>
+                   
                     <a href={link} style={{textDecoration: "none", color: 'black'}}>
+                        
                         <ReadMore>
                         <a href={link} style={{textDecoration: "none", color: 'black'}}>read more</a>
                         <a href={link} style={{textDecoration: "none", color: 'black'}}>
@@ -142,6 +159,10 @@ export default function StickySidebar(props){
                         </a>
                         </ReadMore>
                     </a>
+                    </>}
+
+                    {section_num === 5 &&<FakeIntro>{intro}</FakeIntro>}
+
                 </IntroContainer>
             </Sidebar>
         </>
