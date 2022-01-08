@@ -225,7 +225,7 @@ function App() {
                 num = num + 1;
                 return (
                   <Carousel images = {tech_links}
-                  photographer = {tech_credit}
+                  photographer = "Ariana Fadel"
                   caption = {tech_captions}
                   >
                   </Carousel>

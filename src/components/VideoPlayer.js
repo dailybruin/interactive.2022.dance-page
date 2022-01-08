@@ -22,7 +22,6 @@ const VideoPlayer = () => (
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowfullscreen></iframe>
-    <Credits><b>PERSON</b>/Daily Bruin or Courtesy or Title</Credits>
     </>
 );
 
