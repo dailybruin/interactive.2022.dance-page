@@ -53,7 +53,7 @@ const Right = styled.div`
 
 const SectionContainer = styled.div`
     /* min-height: 100vh; */
-    border-bottom: 0.5px solid #696969;
+    border-bottom: 5px solid #696969;
     background-color: black;
     color: white;
     padding-bottom: 5vh;
@@ -90,6 +90,13 @@ const Credit = styled.div`
     text-align: left;
     font-size: 13px;
     font-family: 'Barlow', sans-serif;
+`
+
+const Div = styled.div`
+background-color: white;
+height: 20px;
+margin-left: -50px;
+margin-right: -50px;
 `
 function App() {
 
@@ -218,6 +225,7 @@ function App() {
               caption={culture_captions}
               >
             </Carousel>
+            {/* <Div style={{backgroundColor: "white"}}>hihi hihi hihi </Div> */}
           </SectionContainer>
           {/* makeup */}
           <SectionContainer>
