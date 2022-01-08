@@ -11,7 +11,7 @@ import Illo from "./components/Illo";
 import Image from "./components/Image";
 import StickySidebarMobile from "./components/StickySidebarMobile";
 import { mediaQueries } from './shared/config';
-import graphic from './images/bigGraphic.png';
+// import graphic from './images/bigGraphic.png';
 
 const IntroText = styled.div`
     display: flex;
@@ -59,7 +59,12 @@ const SectionContainer = styled.div`
     padding-bottom: 5vh;
     margin-bottom: 5vh;
     ${mediaQueries.tablet} {
-      color:red;
+      color:black;
+      background-color:white;
+    }
+    ${mediaQueries.tablet} {
+      margin-left: 3vh;
+      margin-right: 3vh;
     }
 `
 
@@ -67,10 +72,10 @@ const P = styled.p`
     font-size: 15px;
     font-family: 'Barlow', sans-serif;
     text-align: left;
-    /* margin-left: 15px;
-    margin-right: 15px; */
+    
     ${mediaQueries.tablet} {
-      font-color: red;
+      /* margin-left: 15px;
+      margin-right: 15px; */
     }
 `;
 
@@ -191,8 +196,8 @@ function App() {
         <Right>
           {/* kpop stuff first */}
           <SectionContainer>
-            {/* <Image url={data.kpop[0].graphic_link} credit1={""} credit2={""} ></Image> */}
-            <Image url={graphic} credit1={""} credit2={""} ></Image>
+            <Image url={data.kpop[0].graphic_link} credit1={""} credit2={""} ></Image>
+            {/* <Image url={graphic} credit1={""} credit2={""} ></Image> */}
           </SectionContainer>
           {/* hiphop */}
           <SectionContainer>
@@ -261,7 +266,7 @@ function App() {
           {/* kpop stuff first */}
           <StickySidebarMobile headings={data.sidebar} scroll={scroll}/>
           <SectionContainer>
-            <Image url={data.kpop[0].graphic_link} credit1={data.kpop[0].graphic_credit} credit2={data.kpop[0].graphic_credit_2} ></Image>
+            <Image url={data.kpop[0].graphic_link} credit1={""} credit2={""} ></Image>
           </SectionContainer>
           {/* hiphop */}
           {/* <StickySidebarMobile title={data.sidebar[1].title} link={data.sidebar[1].link} intro={data.sidebar[1].text}/> */}
@@ -302,7 +307,7 @@ function App() {
                 )
               }
 
-              if (block.type === "carousel" && num === 0) {
+              else if (block.type === "carousel" && num === 0) {
                 num = num + 1;
                 return (
                   <Carousel images = {tech_links}
@@ -312,6 +317,16 @@ function App() {
                   </Carousel>
                 );
               }
+              
+              else if (block.type === "byline") {
+                return (
+                  <>
+                    <Byline><strong>by {block.byline}</strong></Byline>
+                    <Credit>{block.byline_title}</Credit>
+                  </>
+                )
+              }
+              
             })}
           </SectionContainer>
       </MobileContainer>}

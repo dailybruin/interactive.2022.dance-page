@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import styled from 'styled-components';
 import Slider from "react-slick";
+import { mediaQueries } from '../shared/config';
 
 let sliderHeight = 250
 let imageWidth = 320
@@ -8,6 +9,7 @@ let imageWidth = 320
 const CarouselDiv = styled.div`
     padding-top: 10px;
     background-color: black;
+    
 `
 const Image = styled.img`
     height: ${sliderHeight}px;
@@ -21,6 +23,10 @@ const CredsDiv = styled.div`
     font-family: 'Barlow', sans-serif;
     color: white;
     font-size: smaller;
+    ${mediaQueries.tablet} {
+      background-color: white;
+      color: black;
+    }
 `
 const CaptionDiv = styled.div`
     padding-top: 5px;
@@ -29,6 +35,11 @@ const CaptionDiv = styled.div`
     color: white;
     padding-bottom: 7px;
     margin-bottom: 20px;
+    ${mediaQueries.tablet} {
+      background-color: white;
+      color: black;
+    }
+   
 `
 
 function SampleNextArrow(props) {

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import PropTypes from 'prop-types';
 import '../App.css' /* TODO: idk why the fonts aren't working, i put the import in app.css */
+import { mediaQueries } from '../shared/config';
 
 const Container = styled("div")`
     text-align:center;
@@ -9,6 +10,10 @@ const Container = styled("div")`
     background-color: black;
     margin-bottom: 25px;
     /* margin: 20px auto; */
+    ${mediaQueries.tablet} {
+      color:black;
+      background-color:white;
+    }
 `
 
 const Media = styled("img")`
@@ -29,6 +34,10 @@ const Credits = styled.div`
     color: white;
     text-align: right;
     /* margin-right: 5%; */
+    ${mediaQueries.tablet} {
+      color: black;
+      /* background-color:white; */
+    }
 `;
 
 export default function Illo(props) {
