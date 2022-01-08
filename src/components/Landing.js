@@ -14,7 +14,7 @@ const Credits = styled("div")`
   position: absolute;
   bottom: 30px;
   right: 15px;
-  color: black;
+  color: white;
   font-size: 12px;
   font-family: 'Barlow', sans-serif;
 `;
@@ -33,11 +33,11 @@ export default function Landing(props){
         <>
         
             {isMobile && <Container src={props.url}>
-                <Credits><strong>Joe Bruin</strong>/Daily Bruin</Credits>
+                <Credits><strong>Biona Hui</strong>/Daily Bruin</Credits>
             </Container>}
 
             {!isMobile && <Container src={props.url}>
-                <Credits><strong>Joe Bruin</strong>/Daily Bruin</Credits>
+                <Credits><strong>Biona Hui</strong>/Daily Bruin</Credits>
             </Container>}
             
         </>

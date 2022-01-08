@@ -18,7 +18,7 @@ const Media = styled("img")`
     max-height:1000px; */
     justify-content:center;
     margin:auto;
-    /* width: 95%; */ 
+    width: 100%; 
     height: auto;
 `
 

@@ -107,7 +107,7 @@ export default function StickySidebar(props){
         link = props.headings[2].link;
     }
 
-    else if (scroll <= 85) {
+    else if (scroll <= 76) {
         title = props.headings[3].title;
         intro = props.headings[3].text;
         link = props.headings[3].link;
@@ -134,12 +134,14 @@ export default function StickySidebar(props){
                     <Intro>
                         {intro}
                     </Intro>
-                    <ReadMore>
-                       <div>read more</div>
-                       <a href={link}>
-                        <Arrows src={arrowimg}/>
-                       </a>
-                    </ReadMore>
+                    <a href={link} style={{textDecoration: "none", color: 'black'}}>
+                        <ReadMore>
+                        <a href={link} style={{textDecoration: "none", color: 'black'}}>read more</a>
+                        <a href={link} style={{textDecoration: "none", color: 'black'}}>
+                            <Arrows src={arrowimg}/>
+                        </a>
+                        </ReadMore>
+                    </a>
                 </IntroContainer>
             </Sidebar>
         </>

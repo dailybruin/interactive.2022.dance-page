@@ -65,11 +65,13 @@ const TestingContainer = styled.div`
     border: 0.5px solid #696969;
     background-color: black;
     color: white;
+    padding-bottom: 30px;
 `
 
 const P = styled.p`
-font-size: 20px;
+font-size: 15px;
 font-family: 'Barlow', sans-serif;
+text-align: left;
 `;
 
 function App() {
@@ -81,6 +83,7 @@ function App() {
 		.then(res => res.json())
 		.then(res => setData(res.data['article.aml']))
   }, [])
+  
   let landing_link = "";
   const media = window.matchMedia('(max-width: 750px)');
   const [isMobile, setIsMobile] = useState(media.matches);
@@ -105,9 +108,11 @@ function App() {
       window.addEventListener("scroll", progressBarHandler);
       return () => window.removeEventListener("scroll", progressBarHandler);
   });
+
   if (!data) {
     return null;
   }
+
   let culture_links = [];
   let makeup_links = [];
   let tech_links= [];
@@ -207,12 +212,12 @@ function App() {
           <TestingContainer>
             <Image url={data.tech[0].image_link} credit1={data.tech[0].image_credit} credit2={data.tech[0].image_credit_2}></Image>
             {data.tech.map(block => {
-              let entered = false;
+              
               if (block.type ==="paragraph") {
                 return (
-                  <p>
+                  <P>
                     {block.content}
-                  </p>
+                  </P>
                 )
               }
 
