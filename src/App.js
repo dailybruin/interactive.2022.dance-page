@@ -41,6 +41,7 @@ const Container = styled.div`
 const MobileContainer = styled.div`
     display: flex;
     flex-direction: column;
+    background-color: black;
 `
 
 const Left = styled.div`
@@ -52,12 +53,6 @@ const Right = styled.div`
     width: 75%;
     background-color:black;
     padding: 0 5vh 3vh 5vh;
-`
-const Up = styled.div`
-    height: 25%;
-`
-const Down = styled.div`
-    height: 75%;
 `
 
 const TestingContainer = styled.div`
