@@ -53,6 +53,12 @@ const Intro = styled.div`
     font-size: 14px;
     /* color: white; */
 `
+const FakeIntro = styled.div`
+    font-weight: 400;
+    font-size: 14px;
+    /* color: white; */
+    padding-bottom: 3vh;
+`
 
 const ReadMore = styled.div`
     /* color: white; */
@@ -93,31 +99,37 @@ export default function StickySidebarMobile(props){
     console.log(scroll);
     let title = "";
     let intro = "";
+    let section_num = 1;
     let link = "";
     if (scroll <= 34.7){
+        section_num = 1;
         title = props.headings[0].title;
         intro = props.headings[0].text;
         link = props.headings[0].link;
     }
     else if (scroll <= 43.5) {
+        section_num = 2;
         title = props.headings[1].title;
         intro = props.headings[1].text;
         link = props.headings[1].link;
     }
 
     else if (scroll <= 52.5) {
+        section_num = 3;
         title = props.headings[2].title;
         intro = props.headings[2].text;
         link = props.headings[2].link;
     }
 
     else if (scroll <= 63.4) {
+        section_num = 4;
         title = props.headings[3].title;
         intro = props.headings[3].text;
         link = props.headings[3].link;
     }
 
     else {
+        section_num = 5;
         title = props.headings[4].title;
         intro = props.headings[4].text;
         link = props.headings[4].link;
@@ -135,6 +147,8 @@ export default function StickySidebarMobile(props){
                 </TitleContainer>
 
                 <IntroContainer>
+                    {section_num!==5 && 
+                    <>
                     <Intro>
                         {intro}
                     </Intro>
@@ -146,6 +160,8 @@ export default function StickySidebarMobile(props){
                         </a>
                         </ReadMore>
                     </a>
+                    </>}
+                    {section_num === 5 && <FakeIntro>{intro}</FakeIntro>}
                 </IntroContainer>
             </Sidebar>
      
